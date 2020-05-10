@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Kafkiansky\TextRu\Api\Result\Text;
 
-use function GuzzleHttp\json_decode;
-
 final class SpellCheckCollection
 {
     /**
@@ -15,7 +13,7 @@ final class SpellCheckCollection
 
     public function __construct($payload)
     {
-        if ('' === $payload || null === $payload) {
+        if (empty($payload)) {
             return;
         }
 
@@ -27,10 +25,6 @@ final class SpellCheckCollection
      */
     private function populate($payload): void
     {
-        if (\is_string($payload)) {
-            $payload = json_decode($payload, true);
-        }
-
         foreach ($payload as $spellBody) {
             $this->spells[] = new SpellCheck($spellBody);
         }

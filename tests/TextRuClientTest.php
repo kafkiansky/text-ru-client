@@ -149,4 +149,16 @@ final class TextRuClientTest extends TestCase
         $this->assertEquals(3, $firstSpell->end());
         $this->assertIsArray($firstSpell->replacements());
     }
+
+    public function testGetResultMethodWithoutSpell()
+    {
+        $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__ . '/fixtures/get_result_without_spell.json')));
+
+        /** @var Text $result */
+        $result = $this->textRuClient->call(new GetResult('5eb7ba9a46181'));
+
+        $this->assertEmpty($result->spellCheck()->getSpells());
+        $this->assertNull($result->spellCheck()->first());
+        $this->assertEquals(0, $result->spellCheck()->count());
+    }
 }
