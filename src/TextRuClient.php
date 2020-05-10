@@ -75,6 +75,10 @@ final class TextRuClient
      */
     private function mapResponse(string $body, string $class): ?Result
     {
+        if ('' === $body) {
+            return null;
+        }
+
         $payload = json_decode($body, true);
 
         if (isset($payload['error_code']) && isset($payload['error_desc'])) {

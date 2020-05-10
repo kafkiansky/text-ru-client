@@ -72,6 +72,15 @@ final class TextRuClientTest extends TestCase
         $this->textRuClient->call(new GetResult('xxxxxx'));
     }
 
+    public function testEmptyResponse()
+    {
+        $this->mockHandler->append(new Response(200, [], null));
+
+        $null = $this->textRuClient->call(new Balance());
+
+        $this->assertEquals(null, $null);
+    }
+
     public function testTextUidMethod()
     {
         $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__ . '/fixtures/text_uid_method.json')));
