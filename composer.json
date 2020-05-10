@@ -1,0 +1,39 @@
+{
+    "name": "kafkiansky/text-ru-client",
+    "description": "Package make easy to interact with text.ru api",
+    "keywords": ["text.ru", "api"],
+    "homepage": "https://github.com/kafkiansky/text-ru-client",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "kafkiansky",
+            "role": "Developer",
+            "email": "vadimzanfir@gmail.com",
+            "homepage": "https://github.com/kafkiansky"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kafkiansky\\TextRu\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kafkiansky\\TextRu\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --do-not-cache-result --color=always --coverage-clover=coverage.xml"
+    }
+}
