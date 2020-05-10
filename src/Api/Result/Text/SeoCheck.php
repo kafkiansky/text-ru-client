@@ -7,105 +7,105 @@ namespace Kafkiansky\TextRu\Api\Result\Text;
 final class SeoCheck extends AbstractText
 {
     /**
-     * @var int
+     * @var int|null
      */
     protected $countCharsWithSpace;
 
     /**
-     * @var int
+     * @var int|null
      */
     protected $countCharsWithoutSpace;
 
     /**
-     * @var int
+     * @var int|null
      */
     protected $countWords;
 
     /**
-     * @var float
+     * @var float|null
      */
     protected $waterPercent;
 
     /**
-     * @var float
+     * @var float|null
      */
     protected $spamPercent;
 
     /**
-     * @var array
+     * @var array|null
      */
     protected $mixedWords;
 
     /**
-     * @var array
+     * @var array|null
      */
     protected $listKeys;
 
     /**
-     * @var array
+     * @var array|null
      */
     protected $listKeysGroup;
 
     /**
      * @return int
      */
-    public function countCharsWithSpace(): int
+    public function countCharsWithSpace(): ?int
     {
         return $this->countCharsWithSpace;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function countCharsWithoutSpace(): int
+    public function countCharsWithoutSpace(): ?int
     {
         return $this->countCharsWithoutSpace;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function countWords(): int
+    public function countWords(): ?int
     {
         return $this->countWords;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function waterPercent(): float
+    public function waterPercent(): ?float
     {
-        return $this->waterPercent;
+        return (float) $this->waterPercent;
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function spamPercent(): float
+    public function spamPercent(): ?float
     {
-        return $this->spamPercent;
+        return (float) $this->spamPercent;
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function mixedWords(): array
+    public function mixedWords(): ?array
     {
         return $this->mixedWords;
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function listKeys(): array
+    public function listKeys(): ?array
     {
         return $this->listKeys;
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function listKeysGroup(): array
+    public function listKeysGroup(): ?array
     {
         return $this->listKeysGroup;
     }

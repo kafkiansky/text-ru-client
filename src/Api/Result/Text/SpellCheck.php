@@ -7,17 +7,17 @@ namespace Kafkiansky\TextRu\Api\Result\Text;
 final class SpellCheck extends AbstractText
 {
     /**
-     * @var string
+     * @var string|null
      */
     protected $errorType;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $reason;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $errorText;
 
@@ -27,35 +27,35 @@ final class SpellCheck extends AbstractText
     protected $replacements;
 
     /**
-     * @var int
+     * @var int|null
      */
     protected $start;
 
     /**
-     * @var int
+     * @var int|null
      */
     protected $end;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function errorType(): string
+    public function errorType(): ?string
     {
         return $this->errorType;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function reason(): string
+    public function reason(): ?string
     {
         return $this->reason;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function errorText(): string
+    public function errorText(): ?string
     {
         return $this->errorText;
     }
@@ -69,17 +69,17 @@ final class SpellCheck extends AbstractText
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function start(): int
+    public function start(): ?int
     {
         return $this->start;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function end(): int
+    public function end(): ?int
     {
         return $this->end;
     }

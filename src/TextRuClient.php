@@ -44,6 +44,7 @@ final class TextRuClient
      * @param Method $method
      *
      * @throws TextRuApiErrorException
+     * @throws TextRuErrorResponseException
      *
      * @return Result|null
      */
@@ -61,8 +62,6 @@ final class TextRuClient
             throw new \RuntimeException(\sprintf('Server respond with bad response code: %s', $response->getStatusCode()));
         } catch (GuzzleException $e) {
             throw new TextRuApiErrorException($e->getMessage());
-        } catch (\Throwable $e) {
-            throw new \RuntimeException($e->getMessage());
         }
     }
 
