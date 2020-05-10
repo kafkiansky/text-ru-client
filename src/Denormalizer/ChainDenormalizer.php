@@ -23,7 +23,7 @@ final class ChainDenormalizer
     }
 
     /**
-     * @param array $payload
+     * @param array  $payload
      * @param string $class
      *
      * @return Result|null

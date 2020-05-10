@@ -31,7 +31,7 @@ final class Balance implements Method
     public function payload(): array
     {
         return [
-            'method' => 'get_packages_info'
+            'method' => 'get_packages_info',
         ];
     }
 }

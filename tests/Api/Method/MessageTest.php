@@ -81,7 +81,6 @@ final class MessageTest extends TestCase
         $this->assertArrayHasKey('visible', $message->payload());
         $this->assertEquals('vis_on', $message->payload()['visible']);
 
-
         $message->copying();
 
         $this->assertArrayHasKey('text', $message->payload());
