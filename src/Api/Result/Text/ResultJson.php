@@ -12,7 +12,7 @@ final class ResultJson extends AbstractText
     protected $dateCheck;
 
     /**
-     * @var string|null
+     * @var float|null
      */
     protected $unique;
 
@@ -35,11 +35,11 @@ final class ResultJson extends AbstractText
     }
 
     /**
-     * @return string|null
+     * @return float|null
      */
-    public function unique(): ?string
+    public function unique(): ?float
     {
-        return $this->unique;
+        return (float) $this->unique;
     }
 
     /**

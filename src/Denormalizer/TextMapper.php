@@ -7,7 +7,7 @@ namespace Kafkiansky\TextRu\Denormalizer;
 use Kafkiansky\TextRu\Api\Result\Text\AbstractText;
 use Kafkiansky\TextRu\Api\Result\Text\ResultJson;
 use Kafkiansky\TextRu\Api\Result\Text\SeoCheck;
-use Kafkiansky\TextRu\Api\Result\Text\SpellCheck;
+use Kafkiansky\TextRu\Api\Result\Text\SpellCheckCollection;
 
 final class TextMapper
 {
@@ -28,7 +28,7 @@ final class TextMapper
         }
 
         if ('spell_check' === $property) {
-            return new SpellCheck($value);
+            return new SpellCheckCollection($value);
         }
 
         return $value;

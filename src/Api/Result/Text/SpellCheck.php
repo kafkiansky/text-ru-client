@@ -4,37 +4,44 @@ declare(strict_types=1);
 
 namespace Kafkiansky\TextRu\Api\Result\Text;
 
-final class SpellCheck extends AbstractText
+final class SpellCheck
 {
-    /**
-     * @var string|null
-     */
-    protected $errorType;
+    use Parameterizable;
 
     /**
      * @var string|null
      */
-    protected $reason;
+    private $errorType;
 
     /**
      * @var string|null
      */
-    protected $errorText;
+    private $reason;
+
+    /**
+     * @var string|null
+     */
+    private $errorText;
 
     /**
      * @var array|null
      */
-    protected $replacements;
+    private $replacements;
 
     /**
      * @var int|null
      */
-    protected $start;
+    private $start;
 
     /**
      * @var int|null
      */
-    protected $end;
+    private $end;
+
+    public function __construct(array $payload)
+    {
+        $this->fillFromParameters($payload);
+    }
 
     /**
      * @return string|null

@@ -13,6 +13,8 @@ use Kafkiansky\TextRu\Api\Method\Balance;
 use Kafkiansky\TextRu\Api\Method\GetResult;
 use Kafkiansky\TextRu\Api\Method\Message;
 use Kafkiansky\TextRu\Api\Result\Balance\BalanceSize;
+use Kafkiansky\TextRu\Api\Result\Text\SpellCheck;
+use Kafkiansky\TextRu\Api\Result\Text\Text;
 use Kafkiansky\TextRu\Api\Result\TextUid\TextUid;
 use Kafkiansky\TextRu\Exception\TextRuApiErrorException;
 use Kafkiansky\TextRu\Exception\TextRuErrorResponseException;
@@ -101,5 +103,50 @@ final class TextRuClientTest extends TestCase
 
         $this->assertInstanceOf(BalanceSize::class, $balance);
         $this->assertEquals(12000, $balance->size());
+    }
+
+    public function testGetResultMethod()
+    {
+        $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__ . '/fixtures/get_result_method.json')));
+
+        /** @var Text $result */
+        $result = $this->textRuClient->call(new GetResult('5eb7ba9a46181'));
+
+        $this->assertInstanceOf(Text::class, $result);
+        $this->assertEquals(2.57, $result->textUnique());
+
+        $resultJson = $result->resultJson();
+
+        $this->assertEquals('10.05.2020 11:28:34', $resultJson->dateCheck());
+        $this->assertEquals(2.57, $resultJson->unique());
+        $this->assertEquals('Al work and no play makes Kafkiansky a dull boy All work and no play makes Kafkiansky a dull boy All work', $resultJson->clearText());
+        $this->assertIsArray($resultJson->urls());
+
+        $seoCheck = $result->seoCheck();
+
+        $this->assertEquals(106, $seoCheck->countCharsWithSpace());
+        $this->assertEquals(85, $seoCheck->countCharsWithoutSpace());
+        $this->assertEquals(22, $seoCheck->countWords());
+        $this->assertEquals(60, $seoCheck->waterPercent());
+        $this->assertEquals(25, $seoCheck->spamPercent());
+        $this->assertIsArray($seoCheck->listKeys());
+        $this->assertIsArray($seoCheck->listKeysGroup());
+        $this->assertIsArray($seoCheck->mixedWords());
+
+        $spellCheck = $result->spellCheck();
+
+        $this->assertTrue(2 === $spellCheck->count());
+        $this->assertCount(2, $spellCheck->getSpells());
+        $this->assertIsArray($spellCheck->getSpells());
+
+        $firstSpell = $spellCheck->first();
+
+        $this->assertInstanceOf(SpellCheck::class, $firstSpell);
+        $this->assertEquals('Проверка орфографии', $firstSpell->errorType());
+        $this->assertEquals('Al', $firstSpell->errorText());
+        $this->assertEquals('Найдена орфографическая ошибка', $firstSpell->reason());
+        $this->assertEquals(0, $firstSpell->start());
+        $this->assertEquals(3, $firstSpell->end());
+        $this->assertIsArray($firstSpell->replacements());
     }
 }

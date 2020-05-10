@@ -19,7 +19,7 @@ final class Text extends AbstractText implements Result
     protected $resultJson;
 
     /**
-     * @var SpellCheck|null
+     * @var SpellCheckCollection|null
      */
     protected $spellCheck;
 
@@ -45,9 +45,9 @@ final class Text extends AbstractText implements Result
     }
 
     /**
-     * @return SpellCheck|null
+     * @return SpellCheckCollection|null
      */
-    public function spellCheck(): ?SpellCheck
+    public function spellCheck(): ?SpellCheckCollection
     {
         return $this->spellCheck;
     }
