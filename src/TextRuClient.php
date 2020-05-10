@@ -7,12 +7,12 @@ namespace Kafkiansky\TextRu;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use function GuzzleHttp\json_decode;
 use Kafkiansky\TextRu\Api\Method;
 use Kafkiansky\TextRu\Api\Result\Result;
 use Kafkiansky\TextRu\Denormalizer\ChainDenormalizer;
 use Kafkiansky\TextRu\Exception\TextRuApiErrorException;
 use Kafkiansky\TextRu\Exception\TextRuErrorResponseException;
-use function GuzzleHttp\json_decode;
 
 final class TextRuClient
 {
@@ -52,7 +52,7 @@ final class TextRuClient
     {
         try {
             $response = $this->client->request('POST', $this->endpoint($method->method()), [
-                'form_params' => \array_merge(['userkey' => $this->credentials->userKey()], $method->payload())
+                'form_params' => \array_merge(['userkey' => $this->credentials->userKey()], $method->payload()),
             ]);
 
             if (200 === $response->getStatusCode()) {
@@ -69,9 +69,9 @@ final class TextRuClient
      * @param string $body
      * @param string $class
      *
-     * @return Result|null
-     *
      * @throws TextRuErrorResponseException
+     *
+     * @return Result|null
      */
     private function mapResponse(string $body, string $class): ?Result
     {

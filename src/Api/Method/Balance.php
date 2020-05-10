@@ -10,7 +10,7 @@ use Kafkiansky\TextRu\Api\Result\Balance\BalanceSize;
 final class Balance implements Method
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function method(): string
     {
@@ -18,7 +18,7 @@ final class Balance implements Method
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function mappedClass(): string
     {
@@ -26,7 +26,7 @@ final class Balance implements Method
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function payload(): array
     {

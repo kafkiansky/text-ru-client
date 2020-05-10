@@ -57,7 +57,7 @@ final class TextRuClientTest extends TestCase
 
     public function testTextRuErrorResponse()
     {
-        $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__ . '/fixtures/error_response.json')));
+        $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__.'/fixtures/error_response.json')));
 
         $this->expectException(TextRuErrorResponseException::class);
         $this->expectExceptionMessage('Текущая пара ключ-uid отсутствует в базе');
@@ -85,7 +85,7 @@ final class TextRuClientTest extends TestCase
 
     public function testTextUidMethod()
     {
-        $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__ . '/fixtures/text_uid_method.json')));
+        $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__.'/fixtures/text_uid_method.json')));
 
         /** @var TextUid $textUid */
         $textUid = $this->textRuClient->call(new Message('All work and no play makes Kafkiansky a dull boy All work and no play makes Kafkiansky a dull boy All work'));
@@ -96,7 +96,7 @@ final class TextRuClientTest extends TestCase
 
     public function testBalanceMethod()
     {
-        $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__ . '/fixtures/balance_method.json')));
+        $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__.'/fixtures/balance_method.json')));
 
         /** @var BalanceSize $balance */
         $balance = $this->textRuClient->call(new Balance());
@@ -107,7 +107,7 @@ final class TextRuClientTest extends TestCase
 
     public function testGetResultMethod()
     {
-        $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__ . '/fixtures/get_result_method.json')));
+        $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__.'/fixtures/get_result_method.json')));
 
         /** @var Text $result */
         $result = $this->textRuClient->call(new GetResult('5eb7ba9a46181'));
@@ -152,7 +152,7 @@ final class TextRuClientTest extends TestCase
 
     public function testGetResultMethodWithoutSpell()
     {
-        $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__ . '/fixtures/get_result_without_spell.json')));
+        $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__.'/fixtures/get_result_without_spell.json')));
 
         /** @var Text $result */
         $result = $this->textRuClient->call(new GetResult('5eb7ba9a46181'));

@@ -44,7 +44,7 @@ final class GetResult implements Method
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function method(): string
     {
@@ -52,7 +52,7 @@ final class GetResult implements Method
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function mappedClass(): string
     {
@@ -60,7 +60,7 @@ final class GetResult implements Method
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function payload(): array
     {

@@ -10,7 +10,7 @@ use Kafkiansky\TextRu\Api\Result\TextUid\TextUid;
 final class TextUidDenormalizer implements Denormalizer
 {
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function support(string $class): bool
     {
@@ -18,7 +18,7 @@ final class TextUidDenormalizer implements Denormalizer
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function denormalize(array $payload): ?Result
     {

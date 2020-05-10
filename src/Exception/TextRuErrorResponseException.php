@@ -18,7 +18,7 @@ final class TextRuErrorResponseException extends \Exception
      */
     private $errorText;
 
-    private function __construct(int $errorCode, string $errorText, $message = "", $code = 0, Throwable $previous = null)
+    private function __construct(int $errorCode, string $errorText, $message = '', $code = 0, Throwable $previous = null)
     {
         parent::__construct($errorText, $errorCode, $previous);
         $this->errorCode = $errorCode;
@@ -26,7 +26,7 @@ final class TextRuErrorResponseException extends \Exception
     }
 
     /**
-     * @param int $errorCode
+     * @param int    $errorCode
      * @param string $errorText
      *
      * @return TextRuErrorResponseException

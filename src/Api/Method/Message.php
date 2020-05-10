@@ -117,7 +117,7 @@ final class Message implements Method
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function method(): string
     {
@@ -125,7 +125,7 @@ final class Message implements Method
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function mappedClass(): string
     {
@@ -133,7 +133,7 @@ final class Message implements Method
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function payload(): array
     {
