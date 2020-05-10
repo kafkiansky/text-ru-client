@@ -9,53 +9,53 @@ use Kafkiansky\TextRu\Api\Result\Result;
 final class Text extends AbstractText implements Result
 {
     /**
-     * @var float
+     * @var float|null
      */
     protected $textUnique;
 
     /**
-     * @var ResultJson
+     * @var ResultJson|null
      */
     protected $resultJson;
 
     /**
-     * @var SpellCheck
+     * @var SpellCheck|null
      */
     protected $spellCheck;
 
     /**
-     * @var SeoCheck
+     * @var SeoCheck|null
      */
     protected $seoCheck;
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function textUnique(): float
+    public function textUnique(): ?float
     {
-        return $this->textUnique;
+        return (float) $this->textUnique;
     }
 
     /**
-     * @return ResultJson
+     * @return ResultJson|null
      */
-    public function resultJson(): ResultJson
+    public function resultJson(): ?ResultJson
     {
         return $this->resultJson;
     }
 
     /**
-     * @return SpellCheck
+     * @return SpellCheck|null
      */
-    public function spellCheck(): SpellCheck
+    public function spellCheck(): ?SpellCheck
     {
         return $this->spellCheck;
     }
 
     /**
-     * @return SeoCheck
+     * @return SeoCheck|null
      */
-    public function seoCheck(): SeoCheck
+    public function seoCheck(): ?SeoCheck
     {
         return $this->seoCheck;
     }

@@ -10,6 +10,8 @@ use GuzzleHttp\Exception\GuzzleException;
 use Kafkiansky\TextRu\Api\Method;
 use Kafkiansky\TextRu\Api\Result\Result;
 use Kafkiansky\TextRu\Denormalizer\ChainDenormalizer;
+use Kafkiansky\TextRu\Exception\TextRuApiErrorException;
+use Kafkiansky\TextRu\Exception\TextRuErrorResponseException;
 use function GuzzleHttp\json_decode;
 
 final class TextRuClient
