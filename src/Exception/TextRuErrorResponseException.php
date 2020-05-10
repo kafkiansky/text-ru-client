@@ -20,7 +20,7 @@ final class TextRuErrorResponseException extends \Exception
 
     private function __construct(int $errorCode, string $errorText, $message = "", $code = 0, Throwable $previous = null)
     {
-        parent::__construct($errorText, $code, $previous);
+        parent::__construct($errorText, $errorCode, $previous);
         $this->errorCode = $errorCode;
         $this->errorText = $errorText;
     }
