@@ -1,9 +1,5 @@
 <?php
 
-namespace Kafkiansky\TextRu;
-
-use Countable;
-
 if (!\function_exists('isJson')) {
 
     /**
@@ -23,15 +19,15 @@ if (!\function_exists('isJson')) {
     }
 }
 
-if (!\function_exists('isCountable')) {
+if (!\function_exists('is_countable')) {
 
     /**
      * @param $param
      *
      * @return bool
      */
-    function isCountable($param): bool
+    function is_countable($param): bool
     {
-        return \is_array($param) || $param instanceof Countable;
+        return \is_array($param) || $param instanceof \Countable;
     }
 }
