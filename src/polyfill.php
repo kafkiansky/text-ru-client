@@ -32,6 +32,6 @@ if (!\function_exists('isCountable')) {
      */
     function isCountable($param): bool
     {
-        return (\is_array($param) || $param instanceof Countable);
+        return \is_array($param) || $param instanceof Countable;
     }
 }

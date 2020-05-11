@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Kafkiansky\TextRu\Api\Result\Text;
 
-use Kafkiansky\TextRu\Denormalizer\TextMapper;
 use function GuzzleHttp\json_decode;
-use function Kafkiansky\TextRu\isJson;
+use Kafkiansky\TextRu\Denormalizer\TextMapper;
 use function Kafkiansky\TextRu\isCountable;
+use function Kafkiansky\TextRu\isJson;
 
 trait Parameterizable
 {
