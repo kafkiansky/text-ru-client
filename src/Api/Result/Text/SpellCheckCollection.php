@@ -13,11 +13,9 @@ final class SpellCheckCollection
 
     public function __construct($payload)
     {
-        if (empty($payload)) {
-            return;
+        if (!empty($payload)) {
+            $this->populate($payload);
         }
-
-        $this->populate($payload);
     }
 
     /**
