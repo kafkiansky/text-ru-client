@@ -161,4 +161,21 @@ final class TextRuClientTest extends TestCase
         $this->assertNull($result->spellCheck()->first());
         $this->assertEquals(0, $result->spellCheck()->count());
     }
+
+    public function testGetResultNotDetail()
+    {
+        $this->mockHandler->append(new Response(200, [], file_get_contents(__DIR__.'/fixtures/get_not_detail_result.json')));
+
+        /** @var Text $result */
+        $result = $this->textRuClient->call(new GetResult('5eb7ba9a46181'));
+
+        $this->assertEquals(2.57, $result->textUnique());
+
+        $resultJson = $result->resultJson();
+
+        $this->assertEquals('10.05.2020 11:28:34', $resultJson->dateCheck());
+        $this->assertEquals(2.57, $resultJson->unique());
+        $this->assertNull($resultJson->clearText());
+        $this->assertNull($result->spellCheck()->first());
+    }
 }

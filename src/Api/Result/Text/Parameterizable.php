@@ -5,14 +5,24 @@ declare(strict_types=1);
 namespace Kafkiansky\TextRu\Api\Result\Text;
 
 use Kafkiansky\TextRu\Denormalizer\TextMapper;
+use function GuzzleHttp\json_decode;
+use function Kafkiansky\TextRu\isJson;
 
 trait Parameterizable
 {
     /**
-     * @param array $parameters
+     * @param array|string $parameters
      */
-    private function fillFromParameters(array $parameters = []): void
+    private function fillFromParameters($parameters): void
     {
+        if (\is_string($parameters) && isJson($parameters)) {
+            $parameters = json_decode($parameters, true);
+        }
+
+        if (!\is_countable($parameters)) {
+            return;
+        }
+
         foreach ($parameters as $property => $value) {
             if (\property_exists($this, $camel = $this->toCamel($property))) {
                 $this->$camel = $this->mapper()->map($property, $value);
