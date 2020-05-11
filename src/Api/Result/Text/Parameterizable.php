@@ -7,6 +7,7 @@ namespace Kafkiansky\TextRu\Api\Result\Text;
 use Kafkiansky\TextRu\Denormalizer\TextMapper;
 use function GuzzleHttp\json_decode;
 use function Kafkiansky\TextRu\isJson;
+use function Kafkiansky\TextRu\isCountable;
 
 trait Parameterizable
 {
@@ -19,7 +20,7 @@ trait Parameterizable
             $parameters = json_decode($parameters, true);
         }
 
-        if (!\is_countable($parameters)) {
+        if (!isCountable($parameters)) {
             return;
         }
 

@@ -26,7 +26,7 @@
         "psr-4": {
             "Kafkiansky\\TextRu\\": "src"
         },
-        "files": ["src/functions.php"]
+        "files": ["src/polyfill.php"]
     },
     "autoload-dev": {
         "psr-4": {
